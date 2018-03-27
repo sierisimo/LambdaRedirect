@@ -16,10 +16,12 @@ public class RequestFunctionHandler implements RequestHandler<Map<String, String
         LOGGER.info("Handling request");
         String redirectURL = "http://www.cognizant.com";
         String userAgent = input.get("User-Agent");
-        if(userAgent != null){
-            if(userAgent.matches(".*Android.*")){
+        if (userAgent != null) {
+            if (userAgent.matches(".*Android.*")) {
+            		LOGGER.info("User-Agent: " + userAgent);
                 redirectURL = "https://play.google.com/store/apps";
-            }else if(userAgent.matches(".*Apple-iP[hao].*")){
+            } else if (userAgent.matches(".*Apple.*")) {
+            		LOGGER.info("User-Agent: " + userAgent);
                 redirectURL = "https://itunes.apple.com/mx/app/feria-todos-santos-colima-2017/id1290548021?mt=8";
             }
         }
